@@ -1,6 +1,6 @@
 {
   "name": "npm-dist",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Trim node_modules",
   "main": "index.js",
   "scripts": {
@@ -18,8 +18,5 @@
   ],
   "author": "Yanglin <i@yangl.in>",
   "license": "MIT",
-  "homepage": "http://jslang.org",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "homepage": "http://jslang.org"
 }
