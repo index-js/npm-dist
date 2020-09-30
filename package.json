@@ -1,0 +1,25 @@
+{
+  "name": "npm-dist",
+  "version": "1.0.0",
+  "description": "Trim node_modules",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/index-js/npm-dist.git"
+  },
+  "keywords": [
+    "npm",
+    "dist",
+    "prune",
+    "node_modules"
+  ],
+  "author": "Yanglin <i@yangl.in>",
+  "license": "MIT",
+  "homepage": "http://jslang.org",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
