@@ -1,5 +1,5 @@
 # npm-dist
-> Trim node_modules, copy to dist/node_modules, smaller and faster than before
+> Trim node_modules, copy to dist/node_modules, smaller and faster than before, for server side
 
 ## Installation
 
@@ -14,6 +14,8 @@ $ npm i npm-dist
 1. Delete package.json, pkg.main is no longer needed
 2. Save only reference files
 3. When there is only one file, move the package to the root directory
+
+![Beofre Directory](./src/before.png) ![After Directory](./src/after.png)
 
 ## Usage
 
