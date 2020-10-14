@@ -3,7 +3,7 @@ const FS = require('fs')
 
 
 const activePath = []
-const distPath = __dirname + '/dist'
+const distPath = 'dist'
 
 const getModulePath = realPath => realPath.slice(realPath.indexOf('/node_modules'))
 const getPkg = realPath => {

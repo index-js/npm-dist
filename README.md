@@ -20,9 +20,11 @@ $ npm i npm-dist
 ## Usage
 
 ``` js
-const trim = require('npm-dist')
-// Installed express
-trim('express')
+const Trim = require('npm-dist')
+// Installed lodash@4.17.20
+// total 600+ files
+Trim('lodash')  // 1 file 545kb
+Trim('lodash/trim') // 25 files 102kb
 ```
 
 ## Authors

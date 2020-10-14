@@ -1,6 +1,6 @@
 {
   "name": "npm-dist",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Trim node_modules",
   "main": "index.js",
   "scripts": {
