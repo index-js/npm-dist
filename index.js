@@ -5,7 +5,7 @@ const FS = require('fs')
 const activePath = []
 let distPath = 'dist'
 
-const getModulePath = realPath => realPath.slice(realPath.indexOf('/node_modules'))
+const getModulePath = realPath => realPath.slice(realPath.lastIndexOf('/node_modules'))
 const getPkg = realPath => {
     const modulePath = getModulePath(realPath)
 
@@ -25,7 +25,7 @@ const entry = (request, basePath = '', parentIsNpm = true) => {
 
     if (request[0] !== '.') {
         try {
-            realPath = require.resolve(request)
+            realPath = require.resolve(request, { paths: [basePath] })
         } catch (e) {
             // MODULE_NOT_FOUND，注释或者try-catch引入的包
             // console.error(request, e.code)
