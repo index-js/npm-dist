@@ -46,10 +46,17 @@ const entry = (request, basePath = '', parentIsNpm = true) => {
     // 仅返回相对路径变更的地址
     const modulePath = getModulePath(realPath)
     const pkgName = getPkg(realPath)
+
     if (request[0] === '.' && parentIsNpm) {
         let diff = Path.relative(`/node_modules/${pkgName}`, modulePath)
         if (diff[0] !== '.') diff = './' + diff
 
+        return diff
+    }
+
+    // 引用入口文件，要与新路径对应
+    if (request[0] === '.' && !parentIsNpm && realPath === require.resolve(pkgName)) {
+        let diff = Path.relative(Path.dirname(modulePath), `/node_modules/${pkgName}/index.js`)
         return diff
     }
 
@@ -88,6 +95,7 @@ const changeRef = (request, realPath) => {
         else if (realPath.endsWith('.json')) target = `/node_modules/${pkgName}.json`
     }
 
+    // node v10+
     FS.mkdirSync(Path.dirname(distPath + target), { recursive: true })
     FS.writeFileSync(distPath + target, code)
 }
