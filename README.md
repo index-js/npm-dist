@@ -13,17 +13,17 @@ $ npm i npm-dist
 
 ``` js
 const Trim = require('npm-dist')
-// Installed lodash@4.17.20
-// total 600+ files
-Trim('lodash')  // 1 file 545kb
-Trim('lodash/trim') // 25 files 102kb
+
+// Installed joi@17.3.0
+// total 109 files, 905kb
+Trim('joi')  // 64 file 504kb
 ```
 
 Trim(pkgName[, distPath])
 
 | field | required | desc |
 | ----- |:--------:| ---- |
-| pkgName | true | String, 'lodash', 'lodash/core' |
+| pkgName | true | String, 'joi' |
 | distPath | false | String, default is 'dist' |
 | returns || - |
 | throws || Error |

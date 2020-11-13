@@ -51,12 +51,12 @@ const entry = (request, basePath = '', parentIsNpm = true) => {
         let diff = Path.relative(`/node_modules/${pkgName}`, modulePath)
         if (diff[0] !== '.') diff = './' + diff
 
-        return diff
+        return diff.replace(/\.js$/, '')
     }
 
     // 引用入口文件，要与新路径对应
     if (request[0] === '.' && !parentIsNpm && realPath === require.resolve(pkgName)) {
-        let diff = Path.relative(Path.dirname(modulePath), `/node_modules/${pkgName}/index.js`)
+        let diff = Path.relative(Path.dirname(modulePath), `/node_modules/${pkgName}/index`)
         return diff
     }
 
@@ -80,7 +80,7 @@ const changeRef = (request, realPath) => {
     if (notRootDir) target = `/node_modules/${pkgName}/index.js`
 
     code = code.replace(/(^|[^\.\w])require\(['"]([\w\d_\-\.\/@]+)['"]\)/ig, (match, char, lib) => {
-        const diff = entry(lib, realPath, request[0] !== '.'/* parentIsNpm */)
+        const diff = entry(lib, realPath, request === pkgName/* parentIsNpm */)
         if (diff) {
             refCount++
             return `${char}require('${diff}')`

@@ -1,5 +1,5 @@
 const Trim = require('.')
 
-// Installed lodash@4.17.20
-// total 600+ files
-Trim('lodash')  // 1 file 545kb
+// Installed joi@17.3.0
+// total 109 files, 905kb
+Trim('joi')  // 64 file 504kb
