@@ -56,7 +56,7 @@ const entry = (request, basePath = '', parentIsNpm = true) => {
 
     // 引用入口文件，要与新路径对应
     if (request[0] === '.' && !parentIsNpm && realPath === require.resolve(pkgName)) {
-        let diff = Path.relative(Path.dirname(modulePath), `/node_modules/${pkgName}/index`)
+        let diff = Path.relative(Path.dirname(getModulePath(basePath)), `/node_modules/${pkgName}/index`)
         return diff
     }
 
